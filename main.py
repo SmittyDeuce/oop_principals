@@ -1,3 +1,4 @@
+from budget_category import BudgetCategory
 # 1. Encapsulation in Personal Budget Management
 # Objective: The aim of this assignment is to reinforce the understanding of encapsulation in Python, focusing on the use of private attributes and getters and setters. Students will apply these concepts to create a Personal Budget Management system.
 
@@ -8,6 +9,16 @@
 # Create a class BudgetCategory with private attributes for category name and allocated budget.
 # Initialize these attributes in the constructor.
 # Expected Outcome: A BudgetCategory class capable of storing category details securely.
+
+
+
+
+vacation = BudgetCategory("mexico", 500)
+vacation.get_budget()
+vacation.add_expenses("gas",800)
+vacation.get_budget()
+
+
 # Task 2: Implement Getters and Setters
 
 # Write getter and setter methods for both the category name and the allocated budget.
