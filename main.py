@@ -13,10 +13,11 @@ from budget_category import BudgetCategory
 
 
 
-vacation = BudgetCategory("mexico", 500)
+vacation = BudgetCategory("mexico", 1000)
 vacation.get_budget()
-vacation.add_expenses("gas",800)
-vacation.get_budget()
+# print(vacation.add_expenses("gas",800))
+vacation.display_details()
+# vacation.get_budget()
 
 
 # Task 2: Implement Getters and Setters

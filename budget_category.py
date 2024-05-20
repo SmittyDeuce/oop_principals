@@ -3,13 +3,13 @@ class BudgetCategory:
         
         self.__category_name = category_name
         self.__budget = budget
-        self.expenses = {}
+        self.__expenses = {}
 
     def get_category(self):
-        print(self.__category_name)
+        return self.__category_name
 
     def get_budget(self):
-        print(self.__budget)
+        return self.__budget
     
     def set_budget(self):
         while True:
@@ -60,14 +60,13 @@ class BudgetCategory:
 
 
     def get_expenses(self):
-        return self.expenses
+        return self.__expenses
     
 
     def add_expenses(self, expense_name, amount):
-        budget_counter = self.__budget
         try:
             amount = int(amount)
-            if amount > budget_counter:
+            if amount > self.__budget:
                 print("Error: you don't have enough in the budget for that")
                 return
             
@@ -76,14 +75,14 @@ class BudgetCategory:
                 return
 
             
-            budget_counter -= amount
-            expense_dictionary = self.expenses
+            self.__budget -= amount
+            expense_dictionary = self.__expenses
 
             if expense_name not in expense_dictionary:
-                expense_dictionary[expense_name] = []
+                self.__expenses[expense_name] = []
             
-            expense_dictionary[expense_name].append(amount)
-            print(expense_dictionary)
+            self.__expenses[expense_name].append(amount)
+            print(self.__expenses)
         except ValueError:
             print("Amount has to be positive Interger")
 
@@ -93,38 +92,59 @@ class BudgetCategory:
                 additonal_expenses = input("add more expenses: enter('done') when finished ").strip()
                 
                 if additonal_expenses.lower() == 'done':
-                    print(expense_dictionary)
-                    break
-
-
-                if additonal_expenses not in expense_dictionary:
-                    additonal_amount = int(input("Enter amount cost: ")) 
+                    return self.__expenses
                     
-                    expense_dictionary[additonal_expenses] = []
 
-                    if additonal_amount > budget_counter:
-                        print("Error: you don't have enough in the budget for that")
-                        continue
 
-                    if additonal_amount < 0:
-                        print("Error: a budget can't be less than 0")
-                        continue
+                additonal_amount = int(input("Enter amount cost: ")) 
+                if additonal_amount > self.__budget:
+                    print("Error: you don't have enough in the budget for that")
+                    continue
 
-                    budget_counter -= additonal_amount
+                if additonal_amount < 0:
+                    print("Error: a budget can't be less than 0")
+                    continue
 
-                    if additonal_expenses not in expense_dictionary:
-                        expense_dictionary[additonal_expenses] = []
+                self.__budget -= additonal_amount
+                if additonal_expenses not in self.__expenses:
+                    self.__expenses[additonal_expenses] = []
 
-                    expense_dictionary[additonal_expenses].append(additonal_amount)
-                    print(expense_dictionary)
+                self.__expenses[additonal_expenses].append(additonal_amount)
+                print(self.__expenses)
 
-                    print(expense_dictionary)
             except ValueError:
                 print("Error: additonal amount has to be poitive integers")
                 continue
                     
-        #     else:
-        #         expense_dictionary[additonal_expenses].append(additonal_amount)
-        #         print(expense_dictionary)
-
+      
             
+    def display_details(self):
+        # expenses_dict = self.expenses
+        
+        while True:
+            try:
+                expense_name = input("Enter expense name: (enter 'done' when finished) ").strip()
+
+                if expense_name.lower() == 'done':
+                    break
+
+                amount = int(input("Enter amount: "))
+
+                if amount < 0:
+                    print("Error: amount has to be more than 0")
+                    continue
+                
+                if amount > self.__budget:
+                    print(f"Error: amount can't be higher than expense")
+                    continue
+                
+                self.add_expenses(expense_name, amount)
+
+            except ValueError:
+                print("Error: amount has to be positive integer")
+                continue
+            
+            print("expenses: ",self.get_expenses())
+            print("Remaining Budget: ", self.get_budget())
+            
+        
