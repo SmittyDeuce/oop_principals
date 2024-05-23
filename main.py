@@ -1,4 +1,8 @@
 from budget_category import BudgetCategory
+from e_commerce import Product
+from e_commerce import Book
+from e_commerce import Electronic
+from e_commerce import Clothing
 # 1. Encapsulation in Personal Budget Management
 # Objective: The aim of this assignment is to reinforce the understanding of encapsulation in Python, focusing on the use of private attributes and getters and setters. Students will apply these concepts to create a Personal Budget Management system.
 
@@ -13,10 +17,14 @@ from budget_category import BudgetCategory
 
 
 
-vacation = BudgetCategory("mexico", 1000)
-vacation.get_budget()
+# vacation = BudgetCategory("mexico", 1000)
+# vacation.get_budget()
+# vacation.display_details()
+
+
+
+
 # print(vacation.add_expenses("gas",800))
-vacation.display_details()
 # vacation.get_budget()
 
 
@@ -55,6 +63,7 @@ vacation.display_details()
 # food_category = BudgetCategory("Food", 500)
 # food_category.add_expense(100)
 # food_category.display_category_summary()
+
 # 2. E-commerce Product Catalog System
 # Objective: The goal of this assignment is to demonstrate a deep understanding of inheritance and method overriding in Python. Students will apply these concepts to develop an E-commerce Product Catalog System that handles various types of products with both common and unique attributes.
 
@@ -64,6 +73,16 @@ vacation.display_details()
 
 # Develop a base class Product with common attributes like product ID, name, price, and a method to display product information.
 # Expected Outcome: A Product class that can hold general information about a product and display it.
+
+toothpaste = Product("Colgate", 500)
+
+print(toothpaste.brand)
+print(toothpaste.price)
+toothpaste.product_information()
+
+
+
+
 # Task 2: Implement Subclasses for Specific Products
 
 # Create subclasses Book, Electronic, and Clothing that inherit from Product.
@@ -74,6 +93,8 @@ vacation.display_details()
 # Override the method to display product information in each subclass to include specific attributes.
 # For example, the Book class should display the author, Electronic should display specs, etc.
 # Expected Outcome: Calling the display method on an instance of any subclass shows both common and specific product details.
+
+
 # Task 4: Test Product Catalog Functionality
 
 # Instantiate objects of each subclass and call their display methods to ensure correct information is shown.
@@ -100,3 +121,14 @@ vacation.display_details()
 # # Example usage
 # my_book = Book("123", "Python Essentials", 29.99, "J. Doe")
 # my_book.display_info()
+
+shirt = Clothing("Pro Club", 8, "Large", "White")
+shirt.product_information()
+
+phone = Electronic("SideKick", 199, "no", "Phone")
+phone.product_information()
+
+book = Book("Hunger Games", 40, "dystopian", "Collins")
+book.product_information()
+
+
