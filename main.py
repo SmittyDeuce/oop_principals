@@ -14,11 +14,11 @@ from e_commerce import Clothing
 # Initialize these attributes in the constructor.
 # Expected Outcome: A BudgetCategory class capable of storing category details securely.
 
+vacation = BudgetCategory("mexico", 1000)
 
 
 
-# vacation = BudgetCategory("mexico", 1000)
-# vacation.get_budget()
+
 # vacation.display_details()
 
 
@@ -64,6 +64,17 @@ from e_commerce import Clothing
 # food_category.add_expense(100)
 # food_category.display_category_summary()
 
+
+print(vacation.get_budget())
+vacation.set_budget()
+print(vacation.get_budget())
+
+print(vacation.get_category())
+vacation.set_category()
+print(vacation.get_category())
+
+
+vacation.display_details()
 # 2. E-commerce Product Catalog System
 # Objective: The goal of this assignment is to demonstrate a deep understanding of inheritance and method overriding in Python. Students will apply these concepts to develop an E-commerce Product Catalog System that handles various types of products with both common and unique attributes.
 
@@ -74,11 +85,11 @@ from e_commerce import Clothing
 # Develop a base class Product with common attributes like product ID, name, price, and a method to display product information.
 # Expected Outcome: A Product class that can hold general information about a product and display it.
 
-toothpaste = Product("Colgate", 500)
+# toothpaste = Product("Colgate", 500)
 
-print(toothpaste.brand)
-print(toothpaste.price)
-toothpaste.product_information()
+# print(toothpaste.brand)
+# print(toothpaste.price)
+# toothpaste.product_information()
 
 
 
@@ -122,13 +133,13 @@ toothpaste.product_information()
 # my_book = Book("123", "Python Essentials", 29.99, "J. Doe")
 # my_book.display_info()
 
-shirt = Clothing("Pro Club", 8, "Large", "White")
-shirt.product_information()
+# shirt = Clothing("Pro Club", 8, "Large", "White")
+# shirt.product_information()
 
-phone = Electronic("SideKick", 199, "no", "Phone")
-phone.product_information()
+# phone = Electronic("SideKick", 199, "no", "Phone")
+# phone.product_information()
 
-book = Book("Hunger Games", 40, "dystopian", "Collins")
-book.product_information()
+# book = Book("Hunger Games", 40, "dystopian", "Collins")
+# book.product_information()
 
 
